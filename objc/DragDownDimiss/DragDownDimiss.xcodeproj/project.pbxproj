@@ -14,8 +14,6 @@
 		443C9D831EA08E3A006BFC9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 443C9D821EA08E3A006BFC9A /* Assets.xcassets */; };
 		443C9D861EA08E3A006BFC9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 443C9D841EA08E3A006BFC9A /* LaunchScreen.storyboard */; };
 		443C9D911EA08E3A006BFC9A /* DragDownDimissTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 443C9D901EA08E3A006BFC9A /* DragDownDimissTests.m */; };
-		443C9DA01EA0AF3A006BFC9A /* CardTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 443C9D9F1EA0AF3A006BFC9A /* CardTransitionAnimator.m */; };
-		443C9DA31EA0B56C006BFC9A /* PullDownTransitionInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 443C9DA21EA0B56C006BFC9A /* PullDownTransitionInteractor.m */; };
 		443C9DA61EA0C04A006BFC9A /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 443C9DA51EA0C04A006BFC9A /* SecondViewController.m */; };
 		443C9DA91EA0FDC7006BFC9A /* PullDownDismissCardTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 443C9DA81EA0FDC7006BFC9A /* PullDownDismissCardTransition.m */; };
 /* End PBXBuildFile section */
@@ -44,10 +42,6 @@
 		443C9D8C1EA08E3A006BFC9A /* DragDownDimissTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DragDownDimissTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		443C9D901EA08E3A006BFC9A /* DragDownDimissTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DragDownDimissTests.m; sourceTree = "<group>"; };
 		443C9D921EA08E3A006BFC9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		443C9D9E1EA0AF3A006BFC9A /* CardTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardTransitionAnimator.h; sourceTree = "<group>"; };
-		443C9D9F1EA0AF3A006BFC9A /* CardTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardTransitionAnimator.m; sourceTree = "<group>"; };
-		443C9DA11EA0B56C006BFC9A /* PullDownTransitionInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullDownTransitionInteractor.h; sourceTree = "<group>"; };
-		443C9DA21EA0B56C006BFC9A /* PullDownTransitionInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullDownTransitionInteractor.m; sourceTree = "<group>"; };
 		443C9DA41EA0C04A006BFC9A /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		443C9DA51EA0C04A006BFC9A /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		443C9DA71EA0FDC7006BFC9A /* PullDownDismissCardTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullDownDismissCardTransition.h; sourceTree = "<group>"; };
@@ -101,10 +95,6 @@
 				443C9DA51EA0C04A006BFC9A /* SecondViewController.m */,
 				443C9DA71EA0FDC7006BFC9A /* PullDownDismissCardTransition.h */,
 				443C9DA81EA0FDC7006BFC9A /* PullDownDismissCardTransition.m */,
-				443C9D9E1EA0AF3A006BFC9A /* CardTransitionAnimator.h */,
-				443C9D9F1EA0AF3A006BFC9A /* CardTransitionAnimator.m */,
-				443C9DA11EA0B56C006BFC9A /* PullDownTransitionInteractor.h */,
-				443C9DA21EA0B56C006BFC9A /* PullDownTransitionInteractor.m */,
 				443C9D7F1EA08E3A006BFC9A /* Main.storyboard */,
 				443C9D821EA08E3A006BFC9A /* Assets.xcassets */,
 				443C9D841EA08E3A006BFC9A /* LaunchScreen.storyboard */,
@@ -236,10 +226,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				443C9D7E1EA08E3A006BFC9A /* ViewController.m in Sources */,
-				443C9DA01EA0AF3A006BFC9A /* CardTransitionAnimator.m in Sources */,
 				443C9DA91EA0FDC7006BFC9A /* PullDownDismissCardTransition.m in Sources */,
 				443C9DA61EA0C04A006BFC9A /* SecondViewController.m in Sources */,
-				443C9DA31EA0B56C006BFC9A /* PullDownTransitionInteractor.m in Sources */,
 				443C9D7B1EA08E3A006BFC9A /* AppDelegate.m in Sources */,
 				443C9D781EA08E3A006BFC9A /* main.m in Sources */,
 			);

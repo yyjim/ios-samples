@@ -13,3 +13,14 @@
 - (instancetype)initWithTargetViewController:(UIViewController *)targetViewController;
 @property (nonatomic, strong) NSArray<UIScrollView *> *targetScrollViews;
 @end
+
+@interface CardTransitionAnimator : NSObject <UIViewControllerAnimatedTransitioning>
+@property (nonatomic, assign) BOOL appearing;
+@property (nonatomic, assign) NSTimeInterval duration;
+@end
+
+@interface PullDownTransitionInteractor : UIPercentDrivenInteractiveTransition
+@property (nonatomic, assign) BOOL interactionInProgress;
+@property (nonatomic, strong) NSArray<UIScrollView *> *targetScrollViews;
++ (instancetype)interactorWithTargetViewController:(UIViewController *)targetViewController;
+@end
