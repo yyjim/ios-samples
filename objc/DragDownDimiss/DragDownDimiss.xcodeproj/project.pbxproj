@@ -14,7 +14,6 @@
 		443C9D831EA08E3A006BFC9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 443C9D821EA08E3A006BFC9A /* Assets.xcassets */; };
 		443C9D861EA08E3A006BFC9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 443C9D841EA08E3A006BFC9A /* LaunchScreen.storyboard */; };
 		443C9D911EA08E3A006BFC9A /* DragDownDimissTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 443C9D901EA08E3A006BFC9A /* DragDownDimissTests.m */; };
-		443C9D9D1EA08F70006BFC9A /* DragDownDismissTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 443C9D9C1EA08F70006BFC9A /* DragDownDismissTransition.m */; };
 		443C9DA01EA0AF3A006BFC9A /* CardTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 443C9D9F1EA0AF3A006BFC9A /* CardTransitionAnimator.m */; };
 		443C9DA31EA0B56C006BFC9A /* PanTransitionInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 443C9DA21EA0B56C006BFC9A /* PanTransitionInteractor.m */; };
 		443C9DA61EA0C04A006BFC9A /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 443C9DA51EA0C04A006BFC9A /* SecondViewController.m */; };
@@ -44,8 +43,6 @@
 		443C9D8C1EA08E3A006BFC9A /* DragDownDimissTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DragDownDimissTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		443C9D901EA08E3A006BFC9A /* DragDownDimissTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DragDownDimissTests.m; sourceTree = "<group>"; };
 		443C9D921EA08E3A006BFC9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		443C9D9B1EA08F70006BFC9A /* DragDownDismissTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DragDownDismissTransition.h; sourceTree = "<group>"; };
-		443C9D9C1EA08F70006BFC9A /* DragDownDismissTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DragDownDismissTransition.m; sourceTree = "<group>"; };
 		443C9D9E1EA0AF3A006BFC9A /* CardTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardTransitionAnimator.h; sourceTree = "<group>"; };
 		443C9D9F1EA0AF3A006BFC9A /* CardTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardTransitionAnimator.m; sourceTree = "<group>"; };
 		443C9DA11EA0B56C006BFC9A /* PanTransitionInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanTransitionInteractor.h; sourceTree = "<group>"; };
@@ -99,8 +96,6 @@
 				443C9D7D1EA08E3A006BFC9A /* ViewController.m */,
 				443C9DA41EA0C04A006BFC9A /* SecondViewController.h */,
 				443C9DA51EA0C04A006BFC9A /* SecondViewController.m */,
-				443C9D9B1EA08F70006BFC9A /* DragDownDismissTransition.h */,
-				443C9D9C1EA08F70006BFC9A /* DragDownDismissTransition.m */,
 				443C9D9E1EA0AF3A006BFC9A /* CardTransitionAnimator.h */,
 				443C9D9F1EA0AF3A006BFC9A /* CardTransitionAnimator.m */,
 				443C9DA11EA0B56C006BFC9A /* PanTransitionInteractor.h */,
@@ -237,7 +232,6 @@
 			files = (
 				443C9D7E1EA08E3A006BFC9A /* ViewController.m in Sources */,
 				443C9DA01EA0AF3A006BFC9A /* CardTransitionAnimator.m in Sources */,
-				443C9D9D1EA08F70006BFC9A /* DragDownDismissTransition.m in Sources */,
 				443C9DA61EA0C04A006BFC9A /* SecondViewController.m in Sources */,
 				443C9DA31EA0B56C006BFC9A /* PanTransitionInteractor.m in Sources */,
 				443C9D7B1EA08E3A006BFC9A /* AppDelegate.m in Sources */,

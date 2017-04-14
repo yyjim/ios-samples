@@ -7,10 +7,13 @@
 //
 
 #import "SecondViewController.h"
-#import "DragDownDismissTransition.h"
+#import "CardTransitionAnimator.h"
+#import "PanTransitionInteractor.h"
 
-@interface SecondViewController ()
-@property (nonatomic, strong) DragDownDismissTransition *transition;
+@interface SecondViewController () <UIViewControllerTransitioningDelegate>
+@property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (nonatomic, strong) CardTransitionAnimator *animator;
+@property (nonatomic, strong) PanTransitionInteractor *interactor;
 @end
 
 @implementation SecondViewController
@@ -18,9 +21,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    self.transition = [DragDownDismissTransition new];
-    self.transitioningDelegate = self.transition;
+
+    self.transitioningDelegate = self;
+    self.animator = [CardTransitionAnimator new];
+    self.interactor = [PanTransitionInteractor interactorWithTargetViewController:self];
+    self.interactor.targetScrollViews = @[self.textView];
 }
 
 - (IBAction)actionDismiss:(id)sender
@@ -28,14 +33,23 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (id <UIViewControllerInteractiveTransitioning>)interactionControllerForDismissal:(id <UIViewControllerAnimatedTransitioning>)animator
+{
+    return self.interactor.interactionInProgress ? self.interactor : nil;
 }
-*/
+
+- (id <UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
+                                                                   presentingController:(UIViewController *)presenting
+                                                                       sourceController:(UIViewController *)source
+{
+    self.animator.appearing = YES;
+    return self.animator;
+}
+
+- (id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
+{
+    self.animator.appearing = NO;
+    return self.animator;
+}
 
 @end

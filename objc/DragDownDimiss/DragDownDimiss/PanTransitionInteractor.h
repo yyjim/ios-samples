@@ -11,5 +11,6 @@
 
 @interface PanTransitionInteractor : UIPercentDrivenInteractiveTransition
 @property (nonatomic, assign) BOOL interactionInProgress;
+@property (nonatomic, strong) NSArray<UIScrollView *> *targetScrollViews;
 + (instancetype)interactorWithTargetViewController:(UIViewController *)targetViewController;
 @end
