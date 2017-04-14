@@ -6,36 +6,56 @@
 //  Copyright © 2017 Wani. All rights reserved.
 //
 
-#import "PanTransitionInteractor.h"
+#import "PullDownTransitionInteractor.h"
 
-@interface PanTransitionInteractor() <UIGestureRecognizerDelegate>
-@property (nonatomic, strong) UIViewController *targetViewController;
+@interface PullDownTransitionInteractor() <UIGestureRecognizerDelegate>
+@property (nonatomic, weak) UIViewController *targetViewController;
 @property (nonatomic, strong) UIPanGestureRecognizer *panGesture;
+@property (nonatomic, strong) NSMutableArray<UIPanGestureRecognizer *> *scrollViewPanGestures;
 @end
 
-@implementation PanTransitionInteractor {
+@implementation PullDownTransitionInteractor {
     CGFloat _initialY;
 }
 
 + (instancetype)interactorWithTargetViewController:(UIViewController *)targetViewController
 {
-    PanTransitionInteractor *interactor = [PanTransitionInteractor new];
+    PullDownTransitionInteractor *interactor = [PullDownTransitionInteractor new];
     interactor.targetViewController = targetViewController;
+    interactor.scrollViewPanGestures = [NSMutableArray new];
     return interactor;
+}
+
+- (void)dealloc
+{
+    self.targetScrollViews = nil;
 }
 
 #pragma mark - ScrollView Pan
 
 - (void)setTargetScrollViews:(NSArray<UIScrollView *> *)targetScrollViews
 {
+    [_targetScrollViews enumerateObjectsUsingBlock:^(UIScrollView *scrollView, NSUInteger idx, BOOL *stop) {
+        [scrollView removeObserver:self forKeyPath:NSStringFromSelector(@selector(contentOffset))];
+        [_scrollViewPanGestures enumerateObjectsUsingBlock:^(UIPanGestureRecognizer *pan, NSUInteger idx, BOOL *stop) {
+            [scrollView removeGestureRecognizer:pan];
+        }];
+    }];
+    [_scrollViewPanGestures removeAllObjects];
+    
     _targetScrollViews = targetScrollViews;
     
     [_targetScrollViews enumerateObjectsUsingBlock:^(UIScrollView *scrollView, NSUInteger idx, BOOL * _Nonnull stop) {
         UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleScrollViewPan:)];
         pan.delegate = self;
         [scrollView addGestureRecognizer:pan];
+        [_scrollViewPanGestures addObject:pan];
+        
+        [scrollView addObserver:self
+                     forKeyPath:NSStringFromSelector(@selector(contentOffset))
+                        options:NSKeyValueObservingOptionNew
+                        context:nil];
     }];
-    
 }
 
 - (void)handleScrollViewPan:(UIPanGestureRecognizer *)panGesture
@@ -64,6 +84,21 @@
     } else {
         [self startInteract];
         _initialY = currentY;
+    }
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
+{
+    if (![object isKindOfClass:[UIScrollView class]]) {
+        return;
+    }
+    
+    CGPoint contentOffset = [[change valueForKey:NSKeyValueChangeNewKey] CGPointValue];
+    
+    UIScrollView *scrollView = (UIScrollView *)object;
+    if (contentOffset.y < 0) {
+        contentOffset.y = 0;
+        scrollView.contentOffset = contentOffset;
     }
 }
 

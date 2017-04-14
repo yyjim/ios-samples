@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface PanTransitionInteractor : UIPercentDrivenInteractiveTransition
+@interface PullDownTransitionInteractor : UIPercentDrivenInteractiveTransition
 @property (nonatomic, assign) BOOL interactionInProgress;
 @property (nonatomic, strong) NSArray<UIScrollView *> *targetScrollViews;
 + (instancetype)interactorWithTargetViewController:(UIViewController *)targetViewController;

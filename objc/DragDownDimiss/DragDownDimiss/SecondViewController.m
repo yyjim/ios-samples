@@ -7,13 +7,11 @@
 //
 
 #import "SecondViewController.h"
-#import "CardTransitionAnimator.h"
-#import "PanTransitionInteractor.h"
+#import "PullDownDismissCardTransition.h"
 
-@interface SecondViewController () <UIViewControllerTransitioningDelegate>
+@interface SecondViewController ()
 @property (weak, nonatomic) IBOutlet UITextView *textView;
-@property (nonatomic, strong) CardTransitionAnimator *animator;
-@property (nonatomic, strong) PanTransitionInteractor *interactor;
+@property (strong, nonnull) PullDownDismissCardTransition *transition;
 @end
 
 @implementation SecondViewController
@@ -22,34 +20,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
-    self.transitioningDelegate = self;
-    self.animator = [CardTransitionAnimator new];
-    self.interactor = [PanTransitionInteractor interactorWithTargetViewController:self];
-    self.interactor.targetScrollViews = @[self.textView];
+    self.transition = [[PullDownDismissCardTransition alloc] initWithTargetViewController:self];
+    self.transitioningDelegate = self.transition;
+    self.transition.targetScrollViews = @[self.textView];
 }
 
 - (IBAction)actionDismiss:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (id <UIViewControllerInteractiveTransitioning>)interactionControllerForDismissal:(id <UIViewControllerAnimatedTransitioning>)animator
-{
-    return self.interactor.interactionInProgress ? self.interactor : nil;
-}
-
-- (id <UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
-                                                                   presentingController:(UIViewController *)presenting
-                                                                       sourceController:(UIViewController *)source
-{
-    self.animator.appearing = YES;
-    return self.animator;
-}
-
-- (id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
-{
-    self.animator.appearing = NO;
-    return self.animator;
 }
 
 @end
